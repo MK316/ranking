@@ -16,16 +16,17 @@ def main():
     st.title("IPA King/Queen (since Nov 11, 2024)")
 
     # Creating tabs
-    tab1, tab2 = st.tabs(["IPA records", "Bar Plot"])
+    tab1, tab2 = st.tabs(["IPA records", "Top Rank"])
 
     # Tab 1: Show the DataFrame
     with tab1:
-        st.write("Here is the DataFrame:")
+        st.write("Here is the record:")
         st.dataframe(df)
 
     # Tab 2: Show the bar plot sorted by Scores with hexadecimal color differentiation
     with tab2:
-        st.write("Bar plot of Scores sorted by values")
+        st.write("Top Scores (asof Nov. 11, 2024")
+        st.caption("My students submit their highest scores after practicing with the IPA practice app. The following is the high scores achieved with no mistakes.")
         # Sort the DataFrame by Score in descending order for better visualization
         sorted_df = df.sort_values('Score', ascending=False)
         fig, ax = plt.subplots()
