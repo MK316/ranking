@@ -43,7 +43,7 @@ def main():
                 ax.text(bar.get_x() + bar.get_width()/2, yval / 2, f"❤️  {date}", ha='center', va='center', color='black', fontsize=8)
             else:
                 # Other bars: Add date inside
-                ax.text(bar.get_x() + bar.get_width()/2, yval / 2, date, ha='center', va='center', color='black', fontsize=10)
+                ax.text(bar.get_x() + bar.get_width()/2, yval / 2, date, ha='center', va='center', color='black', fontsize=8)
             # Display score above each bar
             ax.text(bar.get_x() + bar.get_width()/2, yval - 5, round(yval, 1), ha='center', va='bottom', color='black')
 
