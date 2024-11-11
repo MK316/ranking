@@ -26,7 +26,7 @@ def main():
 
     # Tab 2: Show the bar plot sorted by Scores with hexadecimal color differentiation
     with tab2:
-        st.write("Top Scores (asof Nov. 11, 2024")
+        st.write("Top Scores (asof Nov. 11, 2024)")
         st.caption("My students submit their highest scores after practicing with the IPA practice app. The following is the high scores achieved with no mistakes.")
         # Sort the DataFrame by Score in descending order for better visualization
         sorted_df = df.sort_values('Score', ascending=False)
