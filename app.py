@@ -14,7 +14,7 @@ df = pd.DataFrame(data)
 
 def main():
     st.title("IPA King/Queen")
-    st.caption("(since Nov 11, 2024) ")
+    st.caption("Since Nov 11, 2024")
 
     # Creating tabs
     tab1, tab2 = st.tabs(["IPA records", "Top Rank"])
