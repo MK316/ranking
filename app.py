@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Sample data for the DataFrame
 data = {
-    "Name": ["SS", "Bob", "Charlie", "David", "Eve"],
+    "Name": ["SS Park", "Bob", "Charlie", "David", "Eve"],
     "Score": [100, 75, 92, 70, 65],
     "Time": ["24.11.11", "24.11.10", "24.11.12", "24.11.10", "24.10.31"]
 }
@@ -39,7 +39,7 @@ def main():
             date = sorted_df.iloc[i]["Time"]
             if i == 0:
                 # Top bar: Add heart emoji and date inside
-                ax.text(bar.get_x() + bar.get_width()/2, yval / 2, f"❤️ {date}", ha='center', va='center', color='black', fontsize=10)
+                ax.text(bar.get_x() + bar.get_width()/2, yval / 2, f" ❤️ {date}", ha='center', va='center', color='black', fontsize=10)
             else:
                 # Other bars: Add date inside
                 ax.text(bar.get_x() + bar.get_width()/2, yval / 2, date, ha='center', va='center', color='black', fontsize=10)
