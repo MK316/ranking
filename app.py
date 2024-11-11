@@ -23,17 +23,19 @@ def main():
         st.write("Here is the DataFrame:")
         st.dataframe(df)
 
-    # Tab 2: Show the bar plot sorted by Scores
+    # Tab 2: Show the bar plot sorted by Scores with RGB color differentiation
     with tab2:
         st.write("Bar plot of Scores sorted by values")
         # Sort the DataFrame by Score in descending order for better visualization
         sorted_df = df.sort_values('Score', ascending=False)
         fig, ax = plt.subplots()
-        bars = ax.bar(sorted_df['Name'], sorted_df['Score'], color='skyblue')
+        # Colors for the bars: First bar in a different color
+        colors = [(1, 0, 0)] + [(0, 0, 1) for _ in range(len(sorted_df) - 1)]  # Red for the highest score, blue for others
+        bars = ax.bar(sorted_df['Name'], sorted_df['Score'], color=colors)
         # Adding the text inside the bars
         for bar in bars:
             yval = bar.get_height()
-            ax.text(bar.get_x() + bar.get_width()/2, yval - 5, round(yval, 1), ha='center', va='bottom', color='black')
+            ax.text(bar.get_x() + bar.get_width()/2, yval - 5, round(yval, 1), ha='center', va='bottom', color='white')
         
         ax.set_ylabel("Score")
         ax.set_xlabel("Name")
