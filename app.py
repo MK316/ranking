@@ -49,7 +49,7 @@ def main():
 
         ax.set_ylabel("Score")
         ax.set_xlabel("Name")
-        ax.set_title("Scores by Name Sorted")
+        ax.set_title("Top Scores")
         st.pyplot(fig)
 
 if __name__ == "__main__":
