@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Sample data for the DataFrame
 data = {
-    "Name": ["Alice", "Bob", "Charlie", "David", "Eve"],
+    "Name": ["SS", "Bob", "Charlie", "David", "Eve"],
     "Score": [100, 75, 92, 70, 65],
     "Time": ["24.11.11", "24.11.10", "24.11.12", "24.11.10", "24.10.31"]
 }
@@ -30,13 +30,22 @@ def main():
         sorted_df = df.sort_values('Score', ascending=False)
         fig, ax = plt.subplots()
         # Colors for the bars: First bar in a specific color
-        colors = ['#FF8000'] + ['#CCE5FF' for _ in range(len(sorted_df) - 1)]  # Gold for the highest score, blue for others
+        colors = ['#FF8000'] + ['#CCE5FF' for _ in range(len(sorted_df) - 1)]  # Orange for the highest score, light blue for others
         bars = ax.bar(sorted_df['Name'], sorted_df['Score'], color=colors)
-        # Adding the text inside the bars
-        for bar in bars:
-            yval = bar.get_height()
-            ax.text(bar.get_x() + bar.get_width()/2, yval - 5, round(yval, 1), ha='center', va='bottom', color='black')
         
+        # Adding the text inside the bars with the date and heart emoji for the top score
+        for i, bar in enumerate(bars):
+            yval = bar.get_height()
+            date = sorted_df.iloc[i]["Time"]
+            if i == 0:
+                # Top bar: Add heart emoji and date inside
+                ax.text(bar.get_x() + bar.get_width()/2, yval / 2, f"❤️ {date}", ha='center', va='center', color='black', fontsize=10)
+            else:
+                # Other bars: Add date inside
+                ax.text(bar.get_x() + bar.get_width()/2, yval / 2, date, ha='center', va='center', color='black', fontsize=10)
+            # Display score above each bar
+            ax.text(bar.get_x() + bar.get_width()/2, yval - 5, round(yval, 1), ha='center', va='bottom', color='black')
+
         ax.set_ylabel("Score")
         ax.set_xlabel("Name")
         ax.set_title("Scores by Name Sorted")
