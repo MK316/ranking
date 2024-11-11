@@ -13,7 +13,7 @@ data = {
 df = pd.DataFrame(data)
 
 def main():
-    st.title("My App with Data Visualization")
+    st.title("IPA King/Queen (since Nov 11, 2024)")
 
     # Creating tabs
     tab1, tab2 = st.tabs(["IPA records", "Bar Plot"])
@@ -23,12 +23,13 @@ def main():
         st.write("Here is the DataFrame:")
         st.dataframe(df)
 
-    # Tab 2: Show the bar plot
+    # Tab 2: Show the bar plot sorted by Scores
     with tab2:
-        st.write("Bar plot of Scores")
+        st.write("Bar plot of Scores sorted by values")
+        # Sort the DataFrame by Score in descending order for better visualization
+        sorted_df = df.sort_values('Score', ascending=False)
         fig, ax = plt.subplots()
-        # Creating the bar plot
-        bars = ax.bar(df["Name"], df["Score"], color='skyblue')
+        bars = ax.bar(sorted_df['Name'], sorted_df['Score'], color='skyblue')
         # Adding the text inside the bars
         for bar in bars:
             yval = bar.get_height()
@@ -36,7 +37,7 @@ def main():
         
         ax.set_ylabel("Score")
         ax.set_xlabel("Name")
-        ax.set_title("Scores by Name")
+        ax.set_title("Scores by Name Sorted")
         st.pyplot(fig)
 
 if __name__ == "__main__":
