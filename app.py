@@ -32,7 +32,7 @@ def main():
         sorted_df = df.sort_values('Score', ascending=False)
         fig, ax = plt.subplots()
         # Colors for the bars: First bar in a specific color
-        colors = ['#FF8000'] + ['#CCE5FF' for _ in range(len(sorted_df) - 1)]  # Orange for the highest score, light blue for others
+        colors = ['#990000'] + ['#FFFF33' for _ in range(len(sorted_df) - 1)]  # Orange for the highest score, light blue for others
         bars = ax.bar(sorted_df['Name'], sorted_df['Score'], color=colors)
         
         # Adding the text inside the bars with the date and heart emoji for the top score
